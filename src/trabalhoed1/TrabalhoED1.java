@@ -1,21 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalhoed1;
 
-/**
- *
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import trabalhoed1.comandos.ComandoLinux;
+
+/*
  * @author Kevin
  */
 public class TrabalhoED1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        String op;
+        
+        
+        System.out.println("Bem vindo ao terminal, digite um comando para iniciar:");
+        op = input.nextLine();
+        
+        while(!op.equals("exit")){
+            String[] comandoStrArray = op.split("\\s");
+            
+            try {
+                ComandoLinux comando = ComandoLinux.opcaoPelaString(comandoStrArray[0]);
+                
+                comando.getFuncao().fazFuncao();
+                
+                
+            } catch (Exception ex) {
+                System.err.print(ex.getMessage() + "\n");
+            }
+            
+            op = input.nextLine();
+            
+        }
+        
     }
     
 }
