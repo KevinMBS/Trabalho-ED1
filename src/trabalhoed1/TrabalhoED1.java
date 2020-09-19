@@ -1,5 +1,6 @@
 package trabalhoed1;
 
+import Lista.ListaEncadeada;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +14,7 @@ public class TrabalhoED1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String op;
+        ListaEncadeada lista = new ListaEncadeada();
         
         
         System.out.println("Bem vindo ao terminal, digite um comando para iniciar:");
