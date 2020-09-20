@@ -23,9 +23,14 @@ public abstract class InterpretaPath {
             Arquivo aux = new Arquivo(dir);
             while(true){
                 if(atual == null){
+<<<<<<< HEAD
                     //chegou ao fim da lista,logo diretorio não existe
                     throw new PathInvalidoException("");
                     
+=======
+                    //chegou no fim da lista,ou seja, não encontrou o diretório ou arquivo procurado
+                    break;
+>>>>>>> 34856ecc5e596feaf1db0f667df01c69b1997b9a
                 }
                 if(atual.equals(aux)){
                     //encontrou
