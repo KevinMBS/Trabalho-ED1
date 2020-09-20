@@ -22,7 +22,7 @@ public abstract class InterpretaPath {
             Arquivo aux = new Arquivo(dir);
             while(true){
                 if(atual == null){
-                    //deu merda
+                    //chegou no fim da lista,ou seja, não encontrou o diretório ou arquivo procurado
                     break;
                 }
                 if(atual.equals(aux)){
