@@ -18,12 +18,14 @@ public abstract class InterpretaPath {
                 atual = dirAtual.getRaiz();
             }catch(Exception e){
                 //sei que deu merda mas não sei oq fazer
+                throw new PathInvalidoException("");
             }
             Arquivo aux = new Arquivo(dir);
             while(true){
                 if(atual == null){
-                    //deu merda
-                    break;
+                    //chegou ao fim da lista,logo diretorio não existe
+                    throw new PathInvalidoException("");
+                    
                 }
                 if(atual.equals(aux)){
                     //encontrou
@@ -36,6 +38,7 @@ public abstract class InterpretaPath {
                 dirAtual = atual.getDir();       
             }catch(RuntimeException e){
                 //sei que deu merda mas não sei oq fazer
+                throw new PathInvalidoException("");
             }
             
         }
