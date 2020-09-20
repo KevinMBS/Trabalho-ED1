@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalhoed1.elementos;
 
-/**
- *
- * @author Kevin
- */
+import Lista.ListaEncadeada;
+
+
 public class Arquivo {
     private String chave;
     private Arquivo prox;
@@ -30,4 +24,21 @@ public class Arquivo {
             return false;
         }
     }
+
+    public String getChave() {
+        return chave;
+    }
+
+    public void setChave(String chave) {
+        this.chave = chave;
+    }
+
+    public Arquivo getProx() {
+        return prox;
+    }
+
+    public void setProx(Arquivo prox) {
+        this.prox = prox;
+    }
+    
 }

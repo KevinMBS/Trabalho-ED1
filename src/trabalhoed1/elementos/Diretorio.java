@@ -5,12 +5,22 @@
  */
 package trabalhoed1.elementos;
 
+import Lista.ListaEncadeada;
+
 /**
  *
  * @author Kevin
  */
 public class Diretorio extends Arquivo{
-    private Arquivo dir;
+    private ListaEncadeada dir;
+
+    public ListaEncadeada getDir() {
+        return dir;
+    }
+
+    public void setDir(ListaEncadeada dir) {
+        this.dir = dir;
+    }
     
     public Diretorio(String chave) {
         super(chave);

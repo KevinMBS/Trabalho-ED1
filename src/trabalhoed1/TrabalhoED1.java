@@ -25,7 +25,6 @@ public class TrabalhoED1 {
             
             try {
                 ComandoLinux comando = ComandoLinux.opcaoPelaString(comandoStrArray[0]);
-                
                 comando.getFuncao().fazFuncao();
                 
                 
