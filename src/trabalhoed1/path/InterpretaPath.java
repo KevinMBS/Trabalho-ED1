@@ -39,8 +39,7 @@ public abstract class InterpretaPath {
             try{
                 //dirAtual = atual.getDir();       
             }catch(RuntimeException e){
-                //sei que deu merda mas não sei oq fazer
-                throw new PathInvalidoException("");
+                
             }
             
         }
