@@ -1,9 +1,7 @@
 package trabalhoed1;
 
-import Lista.ListaEncadeada;
+import trabalhoed1.lista.ListaEncadeada;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import trabalhoed1.comandos.ComandoLinux;
 
 /*
@@ -25,7 +23,7 @@ public class TrabalhoED1 {
             
             try {
                 ComandoLinux comando = ComandoLinux.opcaoPelaString(comandoStrArray[0]);
-                comando.getFuncao().fazFuncao();
+                comando.getFuncao().fazFuncao(lista, comandoStrArray);
                 
                 
             } catch (Exception ex) {

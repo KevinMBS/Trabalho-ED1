@@ -5,7 +5,7 @@
  */
 package trabalhoed1.elementos;
 
-import Lista.ListaEncadeada;
+import trabalhoed1.lista.ListaEncadeada;
 
 /**
  *

@@ -6,6 +6,7 @@
 package trabalhoed1.comandos;
 
 import trabalhoed1.funcoes.Funcao;
+import trabalhoed1.lista.ListaEncadeada;
 
 /**
  *
@@ -13,9 +14,15 @@ import trabalhoed1.funcoes.Funcao;
  */
 public class ComandoSearch implements Funcao{
 
+    private String[] resComando;
+    
     @Override
-    public void fazFuncao() throws Exception {
+    public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
         System.out.println("Comando Search");
+        this.resComando = resComando;
+        for(String str : resComando){
+            System.out.println(str);
+        }
     }
     
 }

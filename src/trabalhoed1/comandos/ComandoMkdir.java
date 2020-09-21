@@ -5,17 +5,27 @@
  */
 package trabalhoed1.comandos;
 
+import trabalhoed1.exceptions.ArquivoExistenteException;
 import trabalhoed1.funcoes.Funcao;
+import trabalhoed1.lista.ListaEncadeada;
 
 /**
  *
  * @author Rafael
  */
 public class ComandoMkdir implements Funcao{
+    
+    private String[] resComando;
 
     @Override
-    public void fazFuncao() throws Exception {
-        System.out.println("Comando MKDIR");
+    public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
+        if(resComando.length == 2){
+            if(lista.procuraArquivo(resComando[1]))
+                throw new ArquivoExistenteException(resComando[1]);
+            lista.addArquivo(resComando[1]);
+            System.out.println("Arquivo adicionado com sucesso");
+        }
+        
     }
     
 }
