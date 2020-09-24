@@ -15,10 +15,8 @@ public abstract class InterpretaPath {
         Arquivo atual = dirAtual.getRaiz();
         int i, tamanho;
         
-        
-        /*
         i = 0;
-        tamanho = dirsAVisitar.length;
+        tamanho = dirsAVisitar.length-1;
         while(atual != null){
             if(atual.getChave().equals(dirsAVisitar[i]) && i < tamanho){
                 if(atual instanceof Diretorio){
@@ -26,12 +24,16 @@ public abstract class InterpretaPath {
                     atual = dirAtual.getRaiz();
                     i++;
                 }
+            }else if(atual.getChave().equals(dirsAVisitar[i]) && i == tamanho){
+                return atual;
+            }else{
+                atual = atual.getProx();
             }
         }
         
-        return atual;
-        */
+        return null;
         
+        /*
         for(String dir:dirsAVisitar){
             try{
                 atual = dirAtual.getRaiz();
@@ -59,5 +61,6 @@ public abstract class InterpretaPath {
             
         }
         return atual;
+        */
     }
 }

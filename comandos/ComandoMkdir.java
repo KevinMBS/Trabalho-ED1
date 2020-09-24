@@ -7,6 +7,7 @@ package TrabalhoED1.comandos;
 
 import TrabalhoED1.elementos.Diretorio;
 import TrabalhoED1.exceptions.DiretorioExistenteException;
+import TrabalhoED1.exceptions.DiretorioInexistenteException;
 import TrabalhoED1.funcoes.Funcao;
 import TrabalhoED1.lista.ListaEncadeada;
 import TrabalhoED1.path.InterpretaPath;
@@ -21,10 +22,20 @@ public class ComandoMkdir implements Funcao{
 
     @Override
     public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
+        int index;
+        
         if(resComando.length == 2){
             if(resComando[1].contains("/")){
-                Diretorio dir = (Diretorio)InterpretaPath.interpreta(lista, resComando[1]);
-                
+                index = resComando[1].lastIndexOf('/');
+                Diretorio dir = (Diretorio)InterpretaPath.interpreta(lista, resComando[1].substring(0, index));
+                if(dir == null){
+                    throw new DiretorioInexistenteException(resComando[1]);
+                }else{
+                    if(dir.getDir().procuraArquivo(resComando[1].substring(index+1)))
+                        throw new DiretorioExistenteException(resComando[1]);
+                    dir.getDir().addDiretorio(resComando[1].substring(index+1));
+                    System.out.println("Diretório adicionado com sucesso");
+                }
             }else{
                 if(lista.procuraArquivo(resComando[1]))
                     throw new DiretorioExistenteException(resComando[1]);
