@@ -10,9 +10,20 @@ public abstract class InterpretaPath {
     private static String[] dirsAVisitar;
     
     public static Arquivo interpreta(ListaEncadeada lista, String path) throws PathInvalidoException{
-        dirsAVisitar = path.split("\\");
+        dirsAVisitar = path.split("/");
         ListaEncadeada dirAtual = lista;
-        Arquivo atual = null;
+        Arquivo atual = dirAtual.getRaiz();
+        int i = 0;
+        
+        while(atual != null){
+            if(atual.getChave().equals(dirsAVisitar[i])){
+                if(atual instanceof Diretorio){
+                    dirAtual = ((Diretorio) atual).getDir();
+                }else{
+                    return atual;
+                }
+            }
+        }
         
         for(String dir:dirsAVisitar){
             try{
