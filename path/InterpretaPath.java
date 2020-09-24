@@ -1,10 +1,10 @@
 
-package trabalhoed1.path;
+package TrabalhoED1.path;
 
-import trabalhoed1.lista.ListaEncadeada;
-import trabalhoed1.elementos.Arquivo;
-import trabalhoed1.elementos.Diretorio;
-import trabalhoed1.exceptions.PathInvalidoException;
+import TrabalhoED1.lista.ListaEncadeada;
+import TrabalhoED1.elementos.Arquivo;
+import TrabalhoED1.elementos.Diretorio;
+import TrabalhoED1.exceptions.PathInvalidoException;
 
 public abstract class InterpretaPath {
     private static String[] dirsAVisitar;

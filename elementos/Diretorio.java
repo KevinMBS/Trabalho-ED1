@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhoed1.elementos;
+package TrabalhoED1.elementos;
 
-import trabalhoed1.lista.ListaEncadeada;
+import TrabalhoED1.lista.ListaEncadeada;
 
 /**
  *

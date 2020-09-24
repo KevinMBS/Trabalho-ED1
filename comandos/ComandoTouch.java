@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhoed1.comandos;
+package TrabalhoED1.comandos;
 
-import trabalhoed1.exceptions.ArquivoExistenteException;
-import trabalhoed1.funcoes.Funcao;
-import trabalhoed1.lista.ListaEncadeada;
+import TrabalhoED1.exceptions.ArquivoExistenteException;
+import TrabalhoED1.exceptions.DiretorioExistenteException;
+import TrabalhoED1.funcoes.Funcao;
+import TrabalhoED1.lista.ListaEncadeada;
 
 /**
  *

@@ -1,7 +1,7 @@
-package trabalhoed1.lista;
+package TrabalhoED1.lista;
 
-import trabalhoed1.elementos.Arquivo;
-import trabalhoed1.elementos.Diretorio;
+import TrabalhoED1.elementos.Arquivo;
+import TrabalhoED1.elementos.Diretorio;
 
 public class ListaEncadeada {
     private Arquivo raiz;

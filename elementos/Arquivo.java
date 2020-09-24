@@ -1,6 +1,6 @@
-package trabalhoed1.elementos;
+package TrabalhoED1.elementos;
 
-import trabalhoed1.lista.ListaEncadeada;
+import TrabalhoED1.lista.ListaEncadeada;
 
 
 public class Arquivo {

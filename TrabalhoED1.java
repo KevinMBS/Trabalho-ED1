@@ -1,8 +1,8 @@
-package trabalhoed1;
+package TrabalhoED1;
 
-import trabalhoed1.lista.ListaEncadeada;
+import TrabalhoED1.lista.ListaEncadeada;
 import java.util.Scanner;
-import trabalhoed1.comandos.ComandoLinux;
+import TrabalhoED1.comandos.ComandoLinux;
 
 /*
  * @author Kevin

@@ -9,10 +9,10 @@ package TrabalhoED1.exceptions;
  *
  * @author Rafael
  */
-public class ComandoInvalidoException extends Exception{
-
-    public ComandoInvalidoException(String op) {
-        super("Bash: " + op + ": command not found");
+public class DiretorioExistenteException extends Exception {
+    
+    public DiretorioExistenteException(String op){
+        super("mkdir: cannot create directory '" + op + "': File exists");
     }
     
 }
