@@ -13,17 +13,24 @@ public abstract class InterpretaPath {
         dirsAVisitar = path.split("/");
         ListaEncadeada dirAtual = lista;
         Arquivo atual = dirAtual.getRaiz();
-        int i = 0;
+        int i, tamanho;
         
+        
+        /*
+        i = 0;
+        tamanho = dirsAVisitar.length;
         while(atual != null){
-            if(atual.getChave().equals(dirsAVisitar[i])){
+            if(atual.getChave().equals(dirsAVisitar[i]) && i < tamanho){
                 if(atual instanceof Diretorio){
                     dirAtual = ((Diretorio) atual).getDir();
-                }else{
-                    return atual;
+                    atual = dirAtual.getRaiz();
+                    i++;
                 }
             }
         }
+        
+        return atual;
+        */
         
         for(String dir:dirsAVisitar){
             try{
@@ -52,6 +59,5 @@ public abstract class InterpretaPath {
             
         }
         return atual;
-           
     }
 }
