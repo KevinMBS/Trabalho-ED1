@@ -3,6 +3,7 @@ package trabalhoed1.path;
 
 import trabalhoed1.lista.ListaEncadeada;
 import trabalhoed1.elementos.Arquivo;
+import trabalhoed1.elementos.Diretorio;
 import trabalhoed1.exceptions.PathInvalidoException;
 
 public abstract class InterpretaPath {
@@ -35,12 +36,8 @@ public abstract class InterpretaPath {
                 }
                 atual = atual.getProx();
             }
-            
-            try{
-                //dirAtual = atual.getDir();       
-            }catch(RuntimeException e){
-                
-            }
+            if(atual instanceof Diretorio)
+                dirAtual = ((Diretorio)atual).getDir();
             
         }
         return atual;

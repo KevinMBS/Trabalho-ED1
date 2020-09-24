@@ -18,10 +18,8 @@ public class ComandoLs implements Funcao{
     
     @Override
     public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
-        System.out.println("Comando LS");
-        this.resComando = resComando;
-        for(String str : resComando){
-            System.out.println(str);
+        if(resComando.length == 1){
+            lista.printLista();
         }
     }
     

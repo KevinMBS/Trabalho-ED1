@@ -1,6 +1,7 @@
 package trabalhoed1.lista;
 
 import trabalhoed1.elementos.Arquivo;
+import trabalhoed1.elementos.Diretorio;
 
 public class ListaEncadeada {
     private Arquivo raiz;
@@ -31,7 +32,13 @@ public class ListaEncadeada {
         }
         
         ultimo.setProx(novoArq);
-        return;
+    }
+    
+    public void addDiretorio(String chave){
+        Diretorio novoDir = new Diretorio(chave);
+        
+        novoDir.setProx(this.raiz);
+        this.raiz = novoDir;
     }
     
     public boolean procuraArquivo(String chave){
@@ -45,5 +52,18 @@ public class ListaEncadeada {
         return false;
     }
     
+    public void printLista(){
+        Arquivo atual = this.raiz;
+        
+        if(this.raiz == null){
+            System.out.println("Lista vazia");
+        }
+        
+        while(atual != null){
+            System.out.println(atual.getChave());
+            atual = atual.getProx();
+        }
+        
+    }
     
 }

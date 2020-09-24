@@ -5,6 +5,7 @@
  */
 package trabalhoed1.comandos;
 
+import trabalhoed1.exceptions.ArquivoExistenteException;
 import trabalhoed1.funcoes.Funcao;
 import trabalhoed1.lista.ListaEncadeada;
 
@@ -18,10 +19,14 @@ public class ComandoTouch implements Funcao{
     
     @Override
     public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
-        System.out.println("Comando Touch");
-        this.resComando = resComando;
-        for(String str : resComando){
-            System.out.println(str);
+        if(resComando.length == 2){
+            if(lista.procuraArquivo(resComando[1]))
+                throw new ArquivoExistenteException(resComando[1]);
+            lista.addArquivo(resComando[1]);
+            System.out.println("Arquivo adicionado com sucesso");
+        }else{
+            
+            
         }
     }
     

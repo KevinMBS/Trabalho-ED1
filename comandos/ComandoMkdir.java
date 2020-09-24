@@ -22,8 +22,11 @@ public class ComandoMkdir implements Funcao{
         if(resComando.length == 2){
             if(lista.procuraArquivo(resComando[1]))
                 throw new ArquivoExistenteException(resComando[1]);
-            lista.addArquivo(resComando[1]);
-            System.out.println("Arquivo adicionado com sucesso");
+            lista.addDiretorio(resComando[1]);
+            System.out.println("Diretório adicionado com sucesso");
+        }else{
+            
+            
         }
         
     }
