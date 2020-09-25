@@ -29,7 +29,7 @@ public class ComandoMkdir implements Funcao{
                 index = resComando[1].lastIndexOf('/');
                 Diretorio dir = (Diretorio)InterpretaPath.interpreta(lista, resComando[1].substring(0, index));
                 if(dir == null){
-                    throw new DiretorioInexistenteException(resComando[1]);
+                    throw new DiretorioInexistenteException(resComando[0], resComando[1]);
                 }else{
                     if(dir.getDir().procuraArquivo(resComando[1].substring(index+1)))
                         throw new DiretorioExistenteException(resComando[1]);

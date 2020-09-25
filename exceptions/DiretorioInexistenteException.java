@@ -10,7 +10,7 @@ package TrabalhoED1.exceptions;
  * @author Rafael
  */
 public class DiretorioInexistenteException extends Exception{
-    public DiretorioInexistenteException(String op){
-        super("mkdir: cannot create directory '" + op + "': No such file or directory");
+    public DiretorioInexistenteException(String comando, String op){
+        super(comando + ": cannot create/touch '" + op + "': No such file or directory");
     }
 }
