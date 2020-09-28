@@ -1,28 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TrabalhoED1.comandos;
 
 import TrabalhoED1.elementos.Diretorio;
 import TrabalhoED1.exceptions.ArquivoExistenteException;
-import TrabalhoED1.exceptions.DiretorioExistenteException;
 import TrabalhoED1.exceptions.DiretorioInexistenteException;
 import TrabalhoED1.funcoes.Funcao;
 import TrabalhoED1.lista.ListaEncadeada;
 import TrabalhoED1.path.InterpretaPath;
 
-/**
- *
- * @author Rafael
- */
 public class ComandoTouch implements Funcao{
-
+    //Comando feito por Rafael
     private String[] resComando;
     
     @Override
     public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
+        //Não difere muito do mkdir além da parte que é adicionado um arquivo invés de um diretório
         int index;
         
         if(resComando.length == 2){

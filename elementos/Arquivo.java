@@ -1,8 +1,5 @@
 package TrabalhoED1.elementos;
 
-import TrabalhoED1.lista.ListaEncadeada;
-
-
 public class Arquivo {
     private String chave;
     private Arquivo prox;
@@ -14,6 +11,7 @@ public class Arquivo {
     
     @Override
     public boolean equals(Object obj){
+        //Não usamos isso até agora lol
         if(obj instanceof Arquivo){
             if(this.chave.equals(((Arquivo)obj).chave)){
                 return true;

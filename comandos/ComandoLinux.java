@@ -29,11 +29,11 @@ public enum ComandoLinux implements Comando{
     
     public static ComandoLinux opcaoPelaString(String op) throws ComandoInvalidoException{
         for(ComandoLinux comando : ComandoLinux.values()){
+            //percorre os valores de ComandoLinux para ver se o comando dado é valido
             if(comando.opcao.equals(op)){
                 return comando;
             }
         }
-        //Add exception certinha
         throw new ComandoInvalidoException(op);
     }
 }

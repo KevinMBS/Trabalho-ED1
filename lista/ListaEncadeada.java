@@ -19,6 +19,7 @@ public class ListaEncadeada {
     }
     
     public void addArquivo(String chave){
+        //Adiciona um arquivo ao fim da lista
         Arquivo novoArq = new Arquivo(chave);
         if(this.raiz == null){
             this.raiz = novoArq;
@@ -35,6 +36,7 @@ public class ListaEncadeada {
     }
     
     public void addDiretorio(String chave){
+        //Adiciona um diretorio ao começo da lista
         Diretorio novoDir = new Diretorio(chave);
         
         novoDir.setProx(this.raiz);
@@ -42,6 +44,7 @@ public class ListaEncadeada {
     }
     
     public boolean procuraArquivo(String chave){
+        //Procura um elemento na lista atual
         Arquivo atual = this.raiz;
         
         while(atual != null){
@@ -53,6 +56,7 @@ public class ListaEncadeada {
     }
     
     public void printLista(){
+        //Mostra os elementos dessa lista
         Arquivo atual = this.raiz;
         
         if(this.raiz == null){

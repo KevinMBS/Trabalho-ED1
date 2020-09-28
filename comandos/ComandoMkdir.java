@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TrabalhoED1.comandos;
 
 import TrabalhoED1.elementos.Diretorio;
@@ -12,12 +7,8 @@ import TrabalhoED1.funcoes.Funcao;
 import TrabalhoED1.lista.ListaEncadeada;
 import TrabalhoED1.path.InterpretaPath;
 
-/**
- *
- * @author Rafael
- */
 public class ComandoMkdir implements Funcao{
-    
+    //Comando feito por Rafael
     private String[] resComando;
 
     @Override
@@ -26,6 +17,9 @@ public class ComandoMkdir implements Funcao{
         
         if(resComando.length == 2){
             if(resComando[1].contains("/")){
+                //No caso de conter o char / siginifica que o usuario provavelmente digitou
+                //um path, então é armazenado a posição do último / para poder saber qual chave
+                //do novo diretorio ser inserido
                 index = resComando[1].lastIndexOf('/');
                 Diretorio dir = (Diretorio)InterpretaPath.interpreta(lista, resComando[1].substring(0, index));
                 if(dir == null){
@@ -34,9 +28,11 @@ public class ComandoMkdir implements Funcao{
                     if(dir.getDir().procuraArquivo(resComando[1].substring(index+1)))
                         throw new DiretorioExistenteException(resComando[1]);
                     dir.getDir().addDiretorio(resComando[1].substring(index+1));
+                    //Add diretorio na lista, duuh
                     System.out.println("Diretório adicionado com sucesso");
                 }
             }else{
+                //Nesse caso, é diretamente inserido na raiz
                 if(lista.procuraArquivo(resComando[1]))
                     throw new DiretorioExistenteException(resComando[1]);
                 lista.addDiretorio(resComando[1]);
