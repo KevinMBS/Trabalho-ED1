@@ -28,17 +28,11 @@ public abstract class InterpretaPath {
                     i++;
                 }else{
                     //Semi certeza que não é possivel chegar aqui, mas até eu ter certeza, isso permanece
-                    throw new NaoEDiretorioException(path);
                 }
             }else if(atual.getChave().equals(dirsAVisitar[i]) && i == tamanho){
                 //Se chegarmos aqui, achamos o que queriamos achar
-                if(atual instanceof Diretorio){
-                    //...caso ele for um diretorio
-                    return atual;
-                }else{
-                    //se ele for arquivo, lança uma exception
-                    throw new NaoEDiretorioException(path);
-                }
+                return atual;
+                //No caso dele ser um arquivo invés de diretorio, esse erro será tratado fora da função
             }else{
                 //Passa para o proximo elemento na lista
                 atual = atual.getProx();
