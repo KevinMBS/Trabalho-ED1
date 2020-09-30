@@ -24,7 +24,11 @@ public class ComandoLs implements Funcao{
         
         if(resComando[1].equals("-R")){
             //recursiva
-            dir = InterpretaPath.interpreta(lista,resComando[2]);
+            if(resComando.length == 3){
+                dir = InterpretaPath.interpreta(lista,resComando[2]);
+            }else{
+                dir = lista.getRaiz();
+            }
             if(dir == null){ //Diretorio não existe
                 throw new DiretorioInexistenteException(resComando[0], resComando[1]);
             }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base não é possivel imprir seu conteudo no nosso sistema
