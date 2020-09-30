@@ -2,6 +2,8 @@ package TrabalhoED1.lista;
 
 import TrabalhoED1.elementos.Arquivo;
 import TrabalhoED1.elementos.Diretorio;
+import java.util.ArrayList;
+
 
 public class ListaEncadeada {
     private Arquivo raiz;
@@ -60,7 +62,8 @@ public class ListaEncadeada {
         Arquivo atual = this.raiz;
         
         if(this.raiz == null){
-            System.out.println("Lista vazia");
+            //quando o caminho esta vazio simplesmente não mostra nada
+            System.out.println("  ");
         }
         
         while(atual != null){
@@ -68,6 +71,26 @@ public class ListaEncadeada {
             atual = atual.getProx();
         }
         
+    }
+
+    public static void printListaRecursivo(String caminho, Arquivo dir) {
+        Arquivo prox = ((Diretorio)dir).getDir().getRaiz();
+        ArrayList<Diretorio> dirsAvisitar = new ArrayList<Diretorio>();
+        caminho = caminho.concat("/" + dir.getChave());
+        System.out.println("" + caminho);
+        
+        
+        while(prox != null){           
+            System.out.println(" " + prox.getChave());
+            if(prox instanceof Diretorio){
+                dirsAvisitar.add((Diretorio)prox);
+            }
+            prox = prox.getProx();
+        }
+        for(Diretorio d:dirsAvisitar){
+            printListaRecursivo(caminho, d);
+        }
+    
     }
     
 }
