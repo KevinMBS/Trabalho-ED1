@@ -41,35 +41,5 @@ public abstract class InterpretaPath {
         
         //Não foi achado, retorna null
         return null;
-        
-        /*
-        for(String dir:dirsAVisitar){
-            try{
-                atual = dirAtual.getRaiz();
-            }catch(Exception e){
-                //sei que deu merda mas não sei oq fazer
-                throw new PathInvalidoException("");
-            }
-            Arquivo aux = new Arquivo(dir);
-            while(true){
-                if(atual == null){
-                    //chegou ao fim da lista,logo diretorio não existe
-                    throw new PathInvalidoException("");
-                    
-                    //chegou no fim da lista,ou seja, não encontrou o diretório ou arquivo procurado
-                    //break;
-                }
-                if(atual.equals(aux)){
-                    //encontrou
-                    break;
-                }
-                atual = atual.getProx();
-            }
-            if(atual instanceof Diretorio)
-                dirAtual = ((Diretorio)atual).getDir();
-            
-        }
-        return atual;
-        */
     }
 }

@@ -28,21 +28,22 @@ public class ComandoLs implements Funcao{
             if(dir == null){ //Diretorio não existe
                 throw new DiretorioInexistenteException(resComando[0], resComando[1]);
             }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base não é possivel imprir seu conteudo no nosso sistema
-                 //lançar exeção de não é diretorio
-            }
-            ListaEncadeada.printListaRecursivo(".",dir);
-              
+                 System.out.println(""+dir.getChave());
+            }else{
+                ListaEncadeada.printListaRecursivo(".",dir);
+            } 
         }else{
             //não recursiva
             dir = InterpretaPath.interpreta(lista,resComando[1]);
             if(dir == null){ //Diretorio não existe
                 throw new DiretorioInexistenteException(resComando[0], resComando[1]);
             }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base não é possivel imprir seu conteudo no nosso sistema
-                 throw new NaoEDiretorioException(resComando[0], resComando[1]);
-            }
-            ((Diretorio)dir).getDir().printLista(dir.getChave());
-        }
+                System.out.println(""+dir.getChave());
+            }else{
+                ((Diretorio)dir).getDir().printLista(dir.getChave());
         
+            }
+        }
     }
     
 }
