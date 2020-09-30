@@ -57,10 +57,10 @@ public class ListaEncadeada {
         return false;
     }
     
-    public void printLista(){
+    public void printLista(String nomeDir){
         //Mostra os elementos dessa lista
+        System.out.println("./"+ nomeDir);
         Arquivo atual = this.raiz;
-        
         if(this.raiz == null){
             //quando o caminho esta vazio simplesmente não mostra nada
             System.out.println("  ");

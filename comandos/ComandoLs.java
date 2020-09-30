@@ -17,12 +17,8 @@ public class ComandoLs implements Funcao{
         //placeholdeeer, faz sua parte Keeevin
         Arquivo dir;      
         if(resComando.length == 1){
-            lista.printLista();
-        }
-       
-        
-        
-        if(resComando[1].equals("-R")){
+            lista.printLista("");
+        }else if(resComando[1].equals("-R")){
             //recursiva
             if(resComando.length == 3){
                 dir = InterpretaPath.interpreta(lista,resComando[2]);
@@ -35,8 +31,7 @@ public class ComandoLs implements Funcao{
                  //lançar exeção de não é diretorio
             }
             ListaEncadeada.printListaRecursivo(".",dir);
-            
-    
+              
         }else{
             //não recursiva
             dir = InterpretaPath.interpreta(lista,resComando[1]);
@@ -45,7 +40,7 @@ public class ComandoLs implements Funcao{
             }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base não é possivel imprir seu conteudo no nosso sistema
                  throw new NaoEDiretorioException(resComando[0], resComando[1]);
             }
-            ((Diretorio)dir).getDir().printLista();
+            ((Diretorio)dir).getDir().printLista(dir.getChave());
         }
         
     }
