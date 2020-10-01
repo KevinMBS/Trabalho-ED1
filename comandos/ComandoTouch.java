@@ -31,12 +31,12 @@ public class ComandoTouch implements Funcao{
                 }else if(!(dir instanceof Diretorio)){
                     throw new NaoEDiretorioException(resComando[0], resComando[1]);
                 }else{
-                    if(((Diretorio) dir).getDir().procuraArquivo(resComando[1].substring(index+1)))
+                    if(((Diretorio) dir).getDir().procuraArquivo(resComando[1].substring(index+1)) != null)
                         throw new DiretorioExistenteException(resComando[1]);
                     ((Diretorio) dir).getDir().addArquivo(resComando[1].substring(index+1));
                 }
             }else{
-                if(lista.procuraArquivo(resComando[1]))
+                if(lista.procuraArquivo(resComando[1]) != null)
                     throw new ArquivoExistenteException(resComando[1]);
                 lista.addArquivo(resComando[1]);
             }

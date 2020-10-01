@@ -32,14 +32,14 @@ public class ComandoMkdir implements Funcao{
                 }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base
                     throw new NaoEDiretorioException(resComando[0], resComando[1]);
                 }else{
-                    if(((Diretorio) dir).getDir().procuraArquivo(resComando[1].substring(index+1)))
+                    if(((Diretorio) dir).getDir().procuraArquivo(resComando[1].substring(index+1)) != null)
                         throw new DiretorioExistenteException(resComando[1]);
                     ((Diretorio) dir).getDir().addDiretorio(resComando[1].substring(index+1));
                     //Add diretorio na lista, duuh
                 }
             }else{
                 //Nesse caso, é diretamente inserido na raiz
-                if(lista.procuraArquivo(resComando[1]))
+                if(lista.procuraArquivo(resComando[1]) != null)
                     throw new DiretorioExistenteException(resComando[1]);
                 lista.addDiretorio(resComando[1]);
             }
