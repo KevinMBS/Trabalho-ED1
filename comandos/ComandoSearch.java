@@ -20,23 +20,23 @@ public class ComandoSearch implements Funcao{
         if (resComando.length == 1){
             throw new FaltaOperandoException(resComando[0]);
         }else if (resComando.length == 2){
-            if (resComando[1].contains("/")) {
-                dir = InterpretaPath.interpreta(lista, resComando[1]);
-                if (dir == null) { //Diretorio não existe
-                    throw new DiretorioInexistenteException(resComando[0], resComando[1]);
-                } else if((dir = lista.procuraArquivo(resComando[1])) != null){
-                    System.out.println("./" + dir.getChave());
-                }else{
-                    throw new SearchException(resComando[1]);
-                }
-            }else{
-                if((dir = lista.procuraArquivo(resComando[1])) != null){
-                    System.out.println("./" + dir.getChave());
-                }else{
-                    throw new SearchException(resComando[1]);
-                }
-            }
+            //não recursivo sem path
+            lista.search(resComando[1]);
         }else if (resComando.length == 3) {
+            if((resComando[1]).equals("-R")== true){
+                //recursivo sem path
+                lista.searchRec(resComando[2],".");
+            }else{
+                //não recursivo com path
+                dir = InterpretaPath.interpreta(lista, resComando[1]);
+                ((Diretorio)dir).getDir().search(resComando[2]);
+            }
+            
+            
+        }else if (resComando.length == 4){
+            //recursivo com path           
+            dir = InterpretaPath.interpreta(lista, resComando[1]);            
+            ((Diretorio)dir).getDir().searchRec(resComando[3], ".");
             
         }
     }

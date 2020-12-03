@@ -45,16 +45,34 @@ public class ListaEncadeada {
         this.raiz = novoDir;
     }
     
-    public Arquivo procuraArquivo(String chave){
+    public void search(String chave){
         //Procura um elemento na lista atual
         Arquivo atual = this.raiz;
         
         while(atual != null){
-            if(atual.getChave().equals(chave))
-                return atual;
+            if(atual.getChave().equals(chave)){
+                System.out.println("./" + atual.getChave());
+            }
+            atual = atual.getProx();
+        }       
+    }
+    
+    public void searchRec(String chave, String caminho){
+        ArrayList<Diretorio> dirsAvisitar = new ArrayList<>();
+        Arquivo atual = this.raiz;
+        //caminho = caminho;
+        while(atual != null){           
+            if(atual.getChave().equals(chave)){
+                System.out.println(caminho + "/" + chave);
+            }
+            if(atual instanceof Diretorio){
+                dirsAvisitar.add((Diretorio)atual);
+            }
             atual = atual.getProx();
         }
-        return null;
+        for(Diretorio d:dirsAvisitar){
+            d.getDir().searchRec(chave, caminho + "/" + d.getChave());
+        }
     }
     
     public void printLista(String nomeDir){
@@ -91,6 +109,18 @@ public class ListaEncadeada {
             printListaRecursivo(caminho, d);
         }
     
+    }
+    
+    public Arquivo procuraArquivo(String chave){
+        //Procura um elemento na lista atual
+        Arquivo atual = this.raiz;
+        
+        while(atual != null){
+            if(atual.getChave().equals(chave))
+                return atual;
+            atual = atual.getProx();
+        }
+        return null;
     }
     
 }
