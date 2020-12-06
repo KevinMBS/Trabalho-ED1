@@ -1,7 +1,5 @@
 package TrabalhoED1.elementos;
 
-import TrabalhoED1.lista.ListaEncadeada;
-
 public class Diretorio extends Arquivo{
     private ListaEncadeada dir;
 

@@ -1,7 +1,5 @@
-package TrabalhoED1.lista;
+package TrabalhoED1.elementos;
 
-import TrabalhoED1.elementos.Arquivo;
-import TrabalhoED1.elementos.Diretorio;
 import java.util.ArrayList;
 
 
@@ -21,28 +19,34 @@ public class ListaEncadeada {
     }
     
     public void addArquivo(String chave){
-        //Adiciona um arquivo ao fim da lista
         Arquivo novoArq = new Arquivo(chave);
-        if(this.raiz == null){
+        if(this.raiz == null || novoArq.getChave().compareTo(this.raiz.getChave()) < 0){
+            novoArq.setProx(this.raiz);
             this.raiz = novoArq;
-            return;
+        }else{
+            Arquivo atual = this.raiz;
+            while(atual.getProx() != null && atual.getProx().getChave().compareTo(novoArq.getChave()) < 0)
+                atual = atual.getProx();
+            
+            novoArq.setProx(atual.getProx());
+            atual.setProx(novoArq);
         }
-        novoArq.setProx(null);
-        
-        Arquivo ultimo = this.raiz;
-        while(ultimo.getProx() != null){
-            ultimo = ultimo.getProx();
-        }
-        
-        ultimo.setProx(novoArq);
     }
     
     public void addDiretorio(String chave){
-        //Adiciona um diretorio ao começo da lista
-        Diretorio novoDir = new Diretorio(chave);
-        
-        novoDir.setProx(this.raiz);
-        this.raiz = novoDir;
+        Arquivo novoDir = new Diretorio(chave);
+        if (this.raiz == null || novoDir.getChave().compareTo(this.raiz.getChave()) < 0) {
+            novoDir.setProx(this.raiz);
+            this.raiz = novoDir;
+        } else {
+            Arquivo atual = this.raiz;
+            while (atual.getProx() != null && atual.getProx().getChave().compareTo(novoDir.getChave()) < 0) {
+                atual = atual.getProx();
+            }
+
+            novoDir.setProx(atual.getProx());
+            atual.setProx(novoDir);
+        }
     }
     
     public void search(String chave){

@@ -1,6 +1,6 @@
 package TrabalhoED1.path;
 
-import TrabalhoED1.lista.ListaEncadeada;
+import TrabalhoED1.elementos.ListaEncadeada;
 import TrabalhoED1.elementos.Arquivo;
 import TrabalhoED1.elementos.Diretorio;
 import TrabalhoED1.exceptions.NaoEDiretorioException;

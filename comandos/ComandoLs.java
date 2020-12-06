@@ -4,7 +4,7 @@ import TrabalhoED1.elementos.Arquivo;
 import TrabalhoED1.elementos.Diretorio;
 import TrabalhoED1.exceptions.DiretorioInexistenteException;
 import TrabalhoED1.funcoes.Funcao;
-import TrabalhoED1.lista.ListaEncadeada;
+import TrabalhoED1.elementos.ListaEncadeada;
 import TrabalhoED1.path.InterpretaPath;
 
 public class ComandoLs implements Funcao{
