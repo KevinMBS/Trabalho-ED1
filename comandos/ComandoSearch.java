@@ -33,7 +33,7 @@ public class ComandoSearch implements Funcao{
             
         }else if (resComando.length == 4){
             //recursivo com path           
-            dir = InterpretaPath.interpreta(lista, resComando[1]);            
+            dir = InterpretaPath.interpreta(lista, resComando[2]);            
             ((Diretorio)dir).getDir().searchRec(resComando[3], ".");
             
         }
