@@ -26,13 +26,19 @@ public class ComandoSearch implements Funcao{
                 lista.searchRec(resComando[2],".");
             }else{
                 //não recursivo com path
+                if(resComando[1].endsWith("/")){
+                    resComando[1] = resComando[1].substring(0, resComando[1].length()-1);
+                }
                 dir = InterpretaPath.interpreta(lista, resComando[1]);
                 ((Diretorio)dir).getDir().search(resComando[2]);
             }
             
             
         }else if (resComando.length == 4){
-            //recursivo com path           
+            //recursivo com path          
+            if(resComando[2].endsWith("/")){
+                resComando[2] = resComando[2].substring(0, resComando[2].length()-1);
+            }
             dir = InterpretaPath.interpreta(lista, resComando[2]);            
             ((Diretorio)dir).getDir().searchRec(resComando[3], ".");
             
