@@ -14,21 +14,25 @@ public class ComandoLs implements Funcao{
     @Override
     public void fazFuncao(ListaEncadeada lista, String... resComando) throws Exception {
         Arquivo dir;      
+        String aux;
         if(resComando.length == 1){
             lista.printLista("");
         }else if(resComando[1].equals("-R")){
             //recursiva
             if(resComando.length == 3){
                 dir = InterpretaPath.interpreta(lista,resComando[2]);
+                aux = dir.getChave();
             }else{
                 dir = lista.getRaiz();
+                aux = "";
             }
+            
             if(dir == null){ //Diretorio não existe
                 throw new DiretorioInexistenteException(resComando[0], resComando[1]);
             }else if(!(dir instanceof Diretorio)){ //Ou seja, se ele for um arquivo base não é possivel imprir seu conteudo no nosso sistema
                  System.out.println(""+dir.getChave());
             }else{
-                ListaEncadeada.printListaRecursivo(".",dir);
+                lista.printListaRecursivo(".", aux);
             } 
         }else{
             //não recursiva

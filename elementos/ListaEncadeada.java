@@ -81,7 +81,7 @@ public class ListaEncadeada {
     
     public void printLista(String nomeDir){
         //Mostra os elementos dessa lista
-        System.out.println("./"+ nomeDir);
+        System.out.println("./"+ nomeDir+":");
         Arquivo atual = this.raiz;
         if(this.raiz == null){
             //quando o caminho esta vazio simplesmente não mostra nada
@@ -95,11 +95,13 @@ public class ListaEncadeada {
         
     }
 
-    public static void printListaRecursivo(String caminho, Arquivo dir) {
-        Arquivo prox = ((Diretorio)dir).getDir().getRaiz();
+    public void printListaRecursivo(String caminho,String nomeDir) {
+        Arquivo prox = this.getRaiz();
         ArrayList<Diretorio> dirsAvisitar = new ArrayList<>();
-        caminho = caminho.concat("/" + dir.getChave());
-        System.out.println("" + caminho);
+        if(!nomeDir.equals("")){
+            caminho = caminho.concat("/" + nomeDir);
+        }
+        System.out.println("" + caminho +":");
         
         
         while(prox != null){           
@@ -109,8 +111,9 @@ public class ListaEncadeada {
             }
             prox = prox.getProx();
         }
+        System.out.println("");
         for(Diretorio d:dirsAvisitar){
-            printListaRecursivo(caminho, d);
+            d.getDir().printListaRecursivo(caminho, d.getChave());
         }
     
     }
