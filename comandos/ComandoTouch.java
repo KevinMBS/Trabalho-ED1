@@ -23,6 +23,9 @@ public class ComandoTouch implements Funcao{
             throw new FaltaOperandoException(resComando[0]);
         }else if(resComando.length == 2){
             if(resComando[1].contains("/")){
+                if(resComando[1].endsWith("/")){
+                    resComando[1] = resComando[1].substring(0, resComando[1].length()-1);
+                }
                 index = resComando[1].lastIndexOf('/');
                 Arquivo dir = InterpretaPath.interpreta(lista, resComando[1].substring(0, index));
                 if(dir == null){

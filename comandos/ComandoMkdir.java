@@ -25,6 +25,9 @@ public class ComandoMkdir implements Funcao{
                 //No caso de conter o char / siginifica que o usuario provavelmente digitou
                 //um path, então é armazenado a posição do último / para poder saber qual chave
                 //do novo diretorio ser inserido
+                if(resComando[1].endsWith("/")){
+                    resComando[1] = resComando[1].substring(0, resComando[1].length()-1);
+                }
                 index = resComando[1].lastIndexOf('/');
                 Arquivo dir = InterpretaPath.interpreta(lista, resComando[1].substring(0, index));
                 if(dir == null){ //Diretorio não existe
